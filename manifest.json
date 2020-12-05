@@ -2,10 +2,16 @@
     "name": "Translation Extension",
     "version": "1.0",
     "description": "Toucan",
-    "permissions": ["storage"],
+    "permissions": ["activeTabs, storage"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
     },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["test.js"]
+        }
+    ],
     "manifest_version": 2
 }
