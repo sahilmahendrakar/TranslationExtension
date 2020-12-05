@@ -1,0 +1,11 @@
+{
+    "name": "Translation Extension",
+    "version": "1.0",
+    "description": "Toucan",
+    "permissions": ["storage"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "manifest_version": 2
+}
