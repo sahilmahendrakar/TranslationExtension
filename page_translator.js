@@ -68,7 +68,7 @@ const translate = async function(language, difficulty){
                     let word = document.createElement("DIV");
                     let theactualword = document.createTextNode(phrase.original);
                     word.appendChild(theactualword);
-                    word.classList.add("texts");
+                    word.className = "texts"
                     tooltip.appendChild(word);
 
           // let addButton = document.createElement("BUTTON");
@@ -80,7 +80,8 @@ const translate = async function(language, difficulty){
           // addButton.appendChild(img);
           let addButton = document.createElement("IMG");
           addButton.classList.add("clickyclicky");
-          addButton.src = chrome.extension.getURL("images/wave32.png");
+          addButton.classList.add("star");
+          addButton.src = chrome.extension.getURL("images/star32.png");
 
           // addButton.innerHTML = `<img src=${chrome.extension.getURL(
           //   "images/wave32.png"
@@ -93,7 +94,7 @@ const translate = async function(language, difficulty){
 
           let IKnowThisButton = document.createElement("IMG");
           IKnowThisButton.classList.add("clickyclicky");
-          IKnowThisButton.src = chrome.extension.getURL("images/coral32.png");
+          IKnowThisButton.src = chrome.extension.getURL("images/checkmark-32.png");
 
           // IKnowThisButton.appendChild(img2);
           // // addButton.classList.add("iknow");

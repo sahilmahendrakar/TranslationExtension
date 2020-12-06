@@ -1,7 +1,7 @@
 {
-    "name": "Translation Extension",
+    "name": "Coral",
     "version": "1.0",
-    "description": "Toucan",
+    "description": "Language Learning Extension",
     "permissions": ["activeTab", "storage"],
     "background": {
         "scripts": ["background.js"],
@@ -23,9 +23,8 @@
     "48": "images/coral48.png",
     "128": "images/coral128.png"
     },
-    "web_accessible_resources": ["images/wave32.png", "images/coral32.png"],
+    "web_accessible_resources": ["images/star32.png", "images/coral32.png", "images/checkmark-32.png"],
     "options_page" : "options.html",
-    "manifest_version": 2,
+    "manifest_version": 2
 
-    "web_access_resources" : ["images/coral_logo.png"]
 }

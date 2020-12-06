@@ -4,7 +4,7 @@
   --radius: 10px;
   --mainFont: "Quicksand";
   --secondFont: "Raleway";
-  --color1: DodgerBlue;
+  --color1: #65c7a6;
 }
 
 #kyleisgod {
@@ -54,9 +54,17 @@
 }
 
 .clickyclicky {
-  height: 30px;
-  width: 30px;
+  height: 15px;
+  width: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
+
+.clickyclicky.star {
+    height: 20px;
+    width: 20px;
+    margin-left:10px;
+} 
 
 .clickyclicky:hover {
   opacity: 0.6;
@@ -74,16 +82,18 @@
 
 .texts {
   font-family: var(--mainFont), sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 100px;
-  margin: 5px;
+  font-weight: bold;
+  margin: 10px;
 }
 
 .tool-container {
   background-color: var(--color1);
   display: flex;
   height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
   justify-content: center;
   align-items: center;
 }
