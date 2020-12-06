@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Site</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>WELCOME</h1>
+    <button id="ajaxButton" type="button">Make a request</button>
+    <div class="center_container"><a href="flashcards.html" target="_blank" class="center">Click me for flashcards!</a></div>
+
+    <script src="config/APIkey.js"></script>
+    <script src="translate.js"></script>
+
+    <script>
+      (function () {
+        var httpRequest;
+        const text =
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.";
+
+        document
+          .getElementById("ajaxButton")
+          .addEventListener("click", makeRequest);
+
+        function makeRequest() {
+          translateNouns(text, "es", 100).then((response) => console.log(response));
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+const TRANSLATE_API_KEY = "AIzaSyCw3vseFvbshdh0qDTTJ-HG9XGgIJIM2vI";
