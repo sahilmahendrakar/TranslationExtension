@@ -63,60 +63,13 @@ const translate = async function(language, difficulty){
                     
                     let tooltip = document.createElement('SPAN');
                     tooltip.className = "tooltiptext"
-                    tooltip.textContent = phrase.original
                     
                     
-                    let addButton = document.createElement('BUTTON');
-                    addButton.textContent = "+";
-                    let IKnowThisButton = document.createElement("BUTTON");
-                    addButton.classList.add("button");
-                    addButton.classList.add("iknow");
-                    IKnowThisButton.textContent = "-";
-          
-                    // addButton.onclick = function() {
-                    //     console.log(translation[i].original);
-                    //     addWordToFlashcards(translation[i].original, translation[i].translated, language);
-                    // }
-          
-                    addButton.addEventListener("click", (event) => {
-                      addWordToFlashcards(phrase.original, phrase.translated, language);
-                    });
-
-                    IKnowThisButton.addEventListener("click", (event) => {
-                        arentYouSmart();
-                    });
-          
-                    tooltip.appendChild(addButton);
-                    tooltip.appendChild(IKnowThisButton);
-          
-                    span.appendChild(tooltip);
-                    textNode.parentNode.appendChild(span);
-                }
-            }
-          }
-        }
-      }
-      textNode.nodeValue = translation[0];
-      for (let i = 1; i < translation.length; i++) {
-        let phrase = translation[i];
-        if (typeof phrase === "string" || phrase instanceof String) {
-          let text = document.createTextNode(translation[i]);
-          textNode.parentNode.appendChild(text);
-        } else if (typeof phrase !== "undefined") {
-          let span = document.createElement("SPAN");
-          //console.log(part.original);
-          let text = document.createTextNode(phrase.translated);
-          span.appendChild(text);
-          span.id = "kyleisgod";
-
-          let tooltip = document.createElement("SPAN");
-          tooltip.className = "tooltiptext";
-
-          let word = document.createElement("DIV");
-          let theactualword = document.createTextNode(phrase.original);
-          word.appendChild(theactualword);
-          word.classList.add("texts");
-          tooltip.appendChild(word);
+                    let word = document.createElement("DIV");
+                    let theactualword = document.createTextNode(phrase.original);
+                    word.appendChild(theactualword);
+                    word.classList.add("texts");
+                    tooltip.appendChild(word);
 
           // let addButton = document.createElement("BUTTON");
           // addButton.classList.add("clickclick");
@@ -169,11 +122,18 @@ const translate = async function(language, difficulty){
 
           span.appendChild(tooltip);
           textNode.parentNode.appendChild(span);
+                    
+                    
+
+                    IKnowThisButton.addEventListener("click", (event) => {
+                        arentYouSmart();
+                    });
+                }
+            }
+          }
         }
       }
-    }
-  }
-};
+      
 
 window.onload = async function () {
   chrome.storage.sync.get("active", function (active) {
