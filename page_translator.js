@@ -88,12 +88,16 @@ const translate = async function(language, difficulty){
 }
 
 window.onload = async function() {
-    chrome.storage.sync.get("language", function(data) {
-        console.log(data.language);
-        chrome.storage.sync.get("difficulty", function(result) {
-            translate(data.language, result.difficulty)
-        })    // All your code is contained here, or executes later that this
-    });
+    chrome.storage.sync.get("active", function(active) {
+        if(active.active === "true") {
+            chrome.storage.sync.get("language", function(data) {
+                console.log(data.language);
+                chrome.storage.sync.get("difficulty", function(result) {
+                    translate(data.language, result.difficulty)
+                })    
+            });
+        }
+    })
 }
 function textNodesUnder(el){
     var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);

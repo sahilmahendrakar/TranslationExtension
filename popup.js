@@ -60,4 +60,8 @@ toggle.addEventListener('change', (event) => {
     } else {
         chrome.storage.sync.set({active:"false"}, function(){})
     }
+    chrome.tabs.query({active: true, currentWindow: true}, function (arrayOfTabs) {
+        var code = 'window.location.reload();';
+        chrome.tabs.executeScript(arrayOfTabs[0].id, {code: code});
+    });
   })
