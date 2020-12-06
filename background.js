@@ -5,7 +5,7 @@
 'use strict';
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log("The color is green.");
+  chrome.storage.sync.set({language: 'es'}, function() {
+    console.log("The language is spanish.");
   });
 });

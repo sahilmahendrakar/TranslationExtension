@@ -14,6 +14,15 @@
             "js": ["page_translator.js", "translate.js", "config/APIkey.js"]
         }
     ],
-    "options_page": "options.html",
+    "browser_action": {
+        "default_popup": "popup.html"
+      },
+    "icons": {
+    "16": "images/wave16.png",
+    "32": "images/wave32.png",
+    "48": "images/wave48.png",
+    "128": "images/wave128.png"
+    },
+    "options_page" : "options.html",
     "manifest_version": 2
 }

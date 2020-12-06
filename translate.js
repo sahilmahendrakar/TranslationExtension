@@ -1,3 +1,5 @@
+
+
 const translateNouns = async (text,targetLang,percentModify) => {
   var dict = [];
 

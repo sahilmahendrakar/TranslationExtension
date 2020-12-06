@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+h1 {
+	text-align: center;
+}
+
+a:hover{
+	background-color: rgba(244,88,204,.50);
+	/*background-color: #F89BE0;*/
+}
+
+a{
+	background-color: #F458CC;
+	color: white;
+	text-align: none;
+	text-decoration: none;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.center {
+	display: inline-block;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+	background-color: transparent;
+	width: 200px;
+	height: 130px;
+	perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden; /* Safari */
+	backface-visibility: hidden;
+  }
+
+  .card {
+	border-radius: 10px;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+	background-color: #bbb;
+	color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+	background-color: dodgerblue;
+	color: white;
+	transform: rotateY(180deg);
+  }
+
+  #cards {
+	width: 70vw;
+	text-align: center;
+	margin: 0 auto;
+	justify-self: center;
+	align-self: center;
+  }
+
+  .grid-container {
+	  display: grid;
+	  grid-column-gap: 30px;
+	  grid-row-gap: 50px;
+	  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	  justify-items: center;
+	  justify-content: center;
+  }
+
+
+  .card-text {
+	  font-family: "Quicksand", sans-serif;
+	  font-size: 30px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+  } 
