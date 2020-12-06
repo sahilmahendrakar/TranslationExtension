@@ -20,6 +20,7 @@
 #kyleisgod .tooltiptext {
   /* width: 120px; */
   /* height: 60px; */
+  visibility: hidden;
   background-color: var(--color1);
   color: #fff;
   text-align: center;
@@ -32,7 +33,7 @@
   margin-left: -60px;
 
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
 
 #kyleisgod .tooltiptext::after {
@@ -49,7 +50,7 @@
 #kyleisgod:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
+  transition: opacity 0.3s linear;
 }
 
 .clickyclicky {
