@@ -19,6 +19,9 @@ for (let [key, value] of Object.entries(languageList)) {
     let button = document.createElement('OPTION');
     button.setAttribute("value", value);
     button.textContent = key;
+    if(value === chosenLang) {
+        button.setAttribute('selected', 'selected')
+    }
     dropdown.appendChild(button);
 }
 
