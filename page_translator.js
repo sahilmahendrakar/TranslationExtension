@@ -8,12 +8,12 @@
 
 //maybe pass innerText to nlp function, then if function gives back both the new phrase and the old phrase, use replace to replace the old with new
 
-const translate = async function(language){
+const translate = async function(language, difficulty){
     for(var textNode of textNodesUnder(document.body)){
         let rawText = textNode.nodeValue;
         console.log(rawText);
         console.log(textNode.parentElement)
-        let translateDict = await translateNouns(rawText, language, 50);
+        let translateDict = await translateNouns(rawText, language, difficulty);
         console.log(translateDict);
         let translation = [];
         translation.push(rawText)
@@ -90,7 +90,9 @@ const translate = async function(language){
 window.onload = async function() {
     chrome.storage.sync.get("language", function(data) {
         console.log(data.language);
-        translate(data.language);     // All your code is contained here, or executes later that this
+        chrome.storage.sync.get("difficulty", function(result) {
+            translate(data.language, result.difficulty)
+        })    // All your code is contained here, or executes later that this
     });
 }
 function textNodesUnder(el){
