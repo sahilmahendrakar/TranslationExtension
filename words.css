@@ -7,6 +7,7 @@
   }
   
   #kyleisgod .tooltiptext {
+    /* visibility: hidden; */
     width: 120px;
     background-color: cornflowerblue;
     color: #fff;
@@ -20,7 +21,7 @@
     margin-left: -60px;
 
     opacity: 0;
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s;
   }
   
   #kyleisgod .tooltiptext::after {
@@ -37,5 +38,15 @@
   #kyleisgod:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s linear 0s, opacity 300ms;
+    
+  }
+
+  @include keyframes(fadeIn) {
+    0% { opacity: 0; visibility: hidden; }
+    100% { opacity: 1; visibility: visible; }
+  }
+  
+  @include keyframes(fadeOut) {
+    0% { opacity: 1; visibility: visible; }  
+    100% { opacity: 0; visibility: hidden; }
   }

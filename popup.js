@@ -56,6 +56,10 @@ const languageList = {
     "Vietnamese": "vi",
     "Welsh": "cy",
 }
+
+let img = document.getElementById("logoImage");
+img.src = chrome.extension.getURL("images/coral_logo.png");
+
 let dropdown = document.createElement("SELECT");
 dropdown.setAttribute("name", "languages")
 

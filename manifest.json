@@ -18,11 +18,13 @@
         "default_popup": "popup.html"
       },
     "icons": {
-    "16": "images/wave16.png",
-    "32": "images/wave32.png",
-    "48": "images/wave48.png",
-    "128": "images/wave128.png"
+    "16": "images/coral16.png",
+    "32": "images/coral32.png",
+    "48": "images/coral48.png",
+    "128": "images/coral128.png"
     },
     "options_page" : "options.html",
-    "manifest_version": 2
+    "manifest_version": 2,
+
+    "web_access_resources" : ["images/coral_logo.png"]
 }
