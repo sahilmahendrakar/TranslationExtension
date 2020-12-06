@@ -2,7 +2,8 @@
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
-    background-color: lightblue;
+    background-color: #c2f2e2;
+    /* background-color: lightblue; */
   }
   
   #kyleisgod .tooltiptext {
