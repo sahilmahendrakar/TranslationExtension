@@ -73,7 +73,7 @@ a:hover {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
+  background-color: #f0eee1;
   color: black;
 }
 
@@ -188,4 +188,10 @@ a:hover {
   position: absolute;
   bottom: 0;
   object-fit: scale-down;
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  bottom: 0px;
 }
