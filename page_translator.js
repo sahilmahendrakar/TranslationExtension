@@ -93,26 +93,106 @@ const translate = async function(language, difficulty){
                     textNode.parentNode.appendChild(span);
                 }
             }
+          }
         }
-    }
-}
+      }
+      textNode.nodeValue = translation[0];
+      for (let i = 1; i < translation.length; i++) {
+        let phrase = translation[i];
+        if (typeof phrase === "string" || phrase instanceof String) {
+          let text = document.createTextNode(translation[i]);
+          textNode.parentNode.appendChild(text);
+        } else if (typeof phrase !== "undefined") {
+          let span = document.createElement("SPAN");
+          //console.log(part.original);
+          let text = document.createTextNode(phrase.translated);
+          span.appendChild(text);
+          span.id = "kyleisgod";
 
-window.onload = async function() {
-    chrome.storage.sync.get("active", function(active) {
-        if(active.active === "true") {
-            chrome.storage.sync.get("language", function(data) {
-                console.log(data.language);
-                chrome.storage.sync.get("difficulty", function(result) {
-                    translate(data.language, result.difficulty)
-                })    
-            });
+          let tooltip = document.createElement("SPAN");
+          tooltip.className = "tooltiptext";
+
+          let word = document.createElement("DIV");
+          let theactualword = document.createTextNode(phrase.original);
+          word.appendChild(theactualword);
+          word.classList.add("texts");
+          tooltip.appendChild(word);
+
+          // let addButton = document.createElement("BUTTON");
+          // addButton.classList.add("clickclick");
+          // let img = document.createElement("IMG");
+          // img.classList.add("clickyclicky");
+          // img.src = chrome.extension.getURL("images/wave32.png");
+
+          // addButton.appendChild(img);
+          let addButton = document.createElement("IMG");
+          addButton.classList.add("clickyclicky");
+          addButton.src = chrome.extension.getURL("images/wave32.png");
+
+          // addButton.innerHTML = `<img src=${chrome.extension.getURL(
+          //   "images/wave32.png"
+          // )} />`;
+          // // addButton.textContent = "+";
+          // let IKnowThisButton = document.createElement("BUTTON");
+          // // IKnowThisButton.classList.add("clickyclicky");
+          // let img2 = document.createElement("IMG");
+          // img2.src = chrome.extension.getURL("images/coral32.png");
+
+          let IKnowThisButton = document.createElement("IMG");
+          IKnowThisButton.classList.add("clickyclicky");
+          IKnowThisButton.src = chrome.extension.getURL("images/coral32.png");
+
+          // IKnowThisButton.appendChild(img2);
+          // // addButton.classList.add("iknow");
+          // IKnowThisButton.innerHTML = `<img src=${chrome.extension.getURL(
+          //   "images/coral32.png"
+          // )} />`;
+          // IKnowThisButton.textContent = "+";
+
+          // addButton.onclick = function() {
+          //     console.log(translation[i].original);
+          //     addWordToFlashcards(translation[i].original, translation[i].translated, language);
+          // }
+
+          addButton.addEventListener("click", (event) => {
+            addWordToFlashcards(phrase.original, phrase.translated, language);
+          });
+
+          let toolcontainer = document.createElement("DIV");
+          toolcontainer.classList.add("tool-container");
+
+          toolcontainer.appendChild(word);
+          toolcontainer.appendChild(addButton);
+          toolcontainer.appendChild(IKnowThisButton);
+
+          tooltip.appendChild(toolcontainer);
+
+          span.appendChild(tooltip);
+          textNode.parentNode.appendChild(span);
         }
-    })
-}
-function textNodesUnder(el){
-    var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-    while(n=walk.nextNode()) a.push(n);
-    return a;
+      }
+    }
+  }
+};
+
+window.onload = async function () {
+  chrome.storage.sync.get("active", function (active) {
+    if (active.active === "true") {
+      chrome.storage.sync.get("language", function (data) {
+        console.log(data.language);
+        chrome.storage.sync.get("difficulty", function (result) {
+          translate(data.language, result.difficulty);
+        });
+      });
+    }
+  });
+};
+function textNodesUnder(el) {
+  var n,
+    a = [],
+    walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  while ((n = walk.nextNode())) a.push(n);
+  return a;
 }
 
 var addWordToFlashcards = function(original, translated, language) {

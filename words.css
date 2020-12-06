@@ -1,42 +1,97 @@
-#kyleisgod {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    background-color: #c2f2e2;
-    /* background-color: lightblue; */
-  }
-  
-  #kyleisgod .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: cornflowerblue;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -60px;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand");
 
-    opacity: 0;
-    transition: visibility 0s 0.3s, opacity 0.3s linear;
-  }
-  
-  #kyleisgod .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: cornflowerblue transparent transparent transparent;
-  }
-  
-  #kyleisgod:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s linear;
-  }
+:root {
+  --radius: 10px;
+  --mainFont: "Quicksand";
+  --secondFont: "Raleway";
+  --color1: DodgerBlue;
+}
+
+#kyleisgod {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  background-color: #c2f2e2;
+
+  /* display: flex; */
+  /* background-color: lightblue; */
+}
+
+#kyleisgod .tooltiptext {
+  /* width: 120px; */
+  /* height: 60px; */
+  visibility: hidden;
+  background-color: var(--color1);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
+#kyleisgod .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color1) transparent transparent transparent;
+}
+
+#kyleisgod:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}
+
+.clickyclicky {
+  height: 30px;
+  width: 30px;
+}
+
+.clickyclicky:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=100);
+}
+
+.clickyclicky:active {
+  opacity: 0.4;
+}
+
+/* .clickclick {
+  height: 14px;
+  width: 14px;
+} */
+
+.texts {
+  font-family: var(--mainFont), sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100px;
+  margin: 5px;
+}
+
+.tool-container {
+  background-color: var(--color1);
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .add {
+  background: url("wave32.png");
+}
+
+.iknow {
+  background: url("wave32.png");
+} */
