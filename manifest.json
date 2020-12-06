@@ -23,6 +23,7 @@
     "48": "images/wave48.png",
     "128": "images/wave128.png"
     },
+    "web_accessible_resources": ["images/wave32.png", "images/coral32.png"],
     "options_page" : "options.html",
     "manifest_version": 2
 }
