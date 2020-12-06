@@ -7,6 +7,7 @@
 //textContent returns all text
 
 //maybe pass innerText to nlp function, then if function gives back both the new phrase and the old phrase, use replace to replace the old with new
+var smartCount = 0;
 
 const translate = async function(language, difficulty){
     for(var textNode of textNodesUnder(document.body)){
@@ -67,19 +68,28 @@ const translate = async function(language, difficulty){
                     
                     let addButton = document.createElement('BUTTON');
                     addButton.textContent = "+";
-                    
+                    let IKnowThisButton = document.createElement("BUTTON");
+                    addButton.classList.add("button");
+                    addButton.classList.add("iknow");
+                    IKnowThisButton.textContent = "-";
+          
                     // addButton.onclick = function() {
                     //     console.log(translation[i].original);
                     //     addWordToFlashcards(translation[i].original, translation[i].translated, language);
                     // }
-
+          
                     addButton.addEventListener("click", (event) => {
-                        addWordToFlashcards(phrase.original, phrase.translated, language);
-                     });
+                      addWordToFlashcards(phrase.original, phrase.translated, language);
+                    });
 
+                    IKnowThisButton.addEventListener("click", (event) => {
+                        arentYouSmart();
+                    });
+          
                     tooltip.appendChild(addButton);
-                    
-                    span.appendChild(tooltip)
+                    tooltip.appendChild(IKnowThisButton);
+          
+                    span.appendChild(tooltip);
                     textNode.parentNode.appendChild(span);
                 }
             }
@@ -119,4 +129,18 @@ var addWordToFlashcards = function(original, translated, language) {
             console.log(vocabList);
         })
     })
+}
+
+var arentYouSmart = function() {
+    console.log("you know this word!")
+    smartCount++;
+    if(smartCount >= 5) {
+        smartCount = 0;
+        chrome.storage.sync.get("difficulty", function(data){
+           let difficulty = parseInt(data.difficulty)+5;
+           chrome.storage.sync.set({difficulty: difficulty}, () => {
+               console.log("difficulty set to: " + difficulty)
+           })
+        })
+    }
 }
