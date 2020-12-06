@@ -11,7 +11,7 @@ const translateNouns = async (text,targetLang,percentModify) => {
   for (var i = 0; i < syntaxed.length; i++) {
     var token = syntaxed[i];
     var pos = token.partOfSpeech.tag;
-    if ((pos === "NOUN" || pos === "ADV" || pos === "ADJ" || pos === "NUM") && Math.random() * 100 < percentModify) {
+    if ((pos === "NOUN" || pos === "ADV" || pos === "ADJ") && Math.random() * 100 < percentModify) {
       var translated = await translateWord(token.text.content,targetLang);
       translated = translated.data.translations[0].translatedText;
       dict.push({
