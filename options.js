@@ -1,3 +1,4 @@
+let body = document.body
 let page = document.getElementById('buttonDiv')
 const languageList = {
     "Afrikaans": "af",
@@ -22,6 +23,15 @@ dropdown.addEventListener('change', (e) => {
         console.log('language is ' + e.target.value);
       })
 });
+
+let clear = document.createElement("BUTTON")
+clear.textContent = "Clear Flashcards"
+clear.onclick = () => {
+    chrome.storage.sync.set({vocabList: []}, () => {
+        console.log("Cleared flashcards")
+    })
+}
+body.appendChild(clear)
 
 constructOptions(languageList);
 page.appendChild(dropdown)
