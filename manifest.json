@@ -23,7 +23,7 @@
     "48": "images/coral48.png",
     "128": "images/coral128.png"
     },
-    "web_accessible_resources": ["images/star32.png", "images/coral32.png", "images/checkmark-32.png"],
+    "web_accessible_resources": ["images/star32.png", "images/coral32.png", "images/checkmark-32.png", "images/reef.png"],
     "options_page" : "options.html",
     "manifest_version": 2
 }
