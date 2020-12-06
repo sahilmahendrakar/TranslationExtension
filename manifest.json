@@ -1,7 +1,7 @@
 {
     "name": "Translation Extension",
     "version": "1.0",
-    "description": "Toucan",
+    "description": "Coral",
     "permissions": ["activeTab", "storage"],
     "background": {
         "scripts": ["background.js"],
@@ -25,7 +25,5 @@
     },
     "web_accessible_resources": ["images/wave32.png", "images/coral32.png"],
     "options_page" : "options.html",
-    "manifest_version": 2,
-
-    "web_access_resources" : ["images/coral_logo.png"]
+    "manifest_version": 2
 }
