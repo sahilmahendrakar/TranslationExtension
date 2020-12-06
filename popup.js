@@ -40,6 +40,17 @@ slider.oninput = function(){
     output.innerHTML = this.value;
 }
 
+chrome.storage.sync.get("difficulty", function(data){
+    slider.value = data.difficulty
+    output.innerHTML = data.difficulty
+})
+
+slider.onchange = function() {
+    chrome.storage.sync.set({difficulty: this.value}, function(){
+        console.log("difficulty set to: " + this.value);
+    })
+}
+
 var toggle = document.getElementById("toggle")
 chrome.storage.sync.get("active", function(result) {
     if(result.active === "true"){
