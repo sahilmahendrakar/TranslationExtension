@@ -1,11 +1,60 @@
 let page = document.getElementById('cards');
 var chosenLang = 'en';
 const languageList = {
-    "Choose a language": "xx",
-    "Afrikaans": "af",
-    "Albanian": "sq",
-    "Russian": "rs",
-    "Spanish": "es"
+    "Choose a language!": "xx",
+    "Amharic": "am",
+    "Arabic": "ar",
+    "Basque": "eu",
+    "Bengali": "bn",
+    "Bulgarian": "bg",
+    "Catalan": "ca",
+    "Cherokee": "chr",
+    "Croatian": "hr",
+    "Czech": "cs",
+    "Danish": "da",
+    "Dutch": "nl",
+    "Estonian": "et",
+    "Filipino": "fil",
+    "Finnish": "fi",
+    "French": "fr",
+    "German": "de",
+    "Greek": "el",
+    "Gujarati": "gu",
+    "Hebrew": "iw",
+    "Hindi": "hi",
+    "Hungarian": "hu",
+    "Icelandic": "is",
+    "Indonesian": "id",
+    "Italian": "it",
+    "Japanese": "ja",
+    "Kannada": "kn",
+    "Korean": "ko",
+    "Latvian": "lv",
+    "Lithuanian": "lt",
+    "Malay": "ms",
+    "Malayalam": "ml",
+    "Marathi": "mr",
+    "Norwegian": "no",
+    "Polish": "pl",
+    "Portuguese (Portugal)": "pt-PT",
+    "Romanian": "ro",
+    "Russian": "ru",
+    "Serbian": "sr",
+    "Chinese (PRC)": "zh-CN",
+    "Slovak": "sk",
+    "Slovenian": "sl",
+    "Spanish": "es",
+    "Swahili": "sw",
+    "Swedish": "sv",
+    "Tamil": "ta",
+    "Telugu": "te",
+    "Thai": "th",
+    "Chinese (Taiwan)": "zh-TW",
+    "Turkish": "tr",
+    "Urdu": "ur",
+    "Ukrainian": "uk",
+    "Vietnamese": "vi",
+    "Welsh": "cy",
 }
 
 let dropdownBox = document.createElement("DIV");
@@ -15,15 +64,15 @@ let dropdown = document.createElement("SELECT");
 dropdown.setAttribute("name", "languages");
 dropdownBox.appendChild(dropdown);
 
-for (let [key, value] of Object.entries(languageList)) {
-    let button = document.createElement('OPTION');
-    button.setAttribute("value", value);
-    button.textContent = key;
-    if(value === chosenLang) {
-        button.setAttribute('selected', 'selected')
-    }
-    dropdown.appendChild(button);
-}
+// for (let [key, value] of Object.entries(languageList)) {
+//     let button = document.createElement('OPTION');
+//     button.setAttribute("value", value);
+//     button.textContent = key;
+//     if(value === chosenLang) {
+//         button.setAttribute('selected', 'selected')
+//     }
+//     dropdown.appendChild(button);
+// }
 
 function constructOptions(vocabList) {
 
@@ -194,6 +243,27 @@ function removeElementsByClass(className) {
 }
 
 chrome.storage.sync.get('vocabList', function(result) {
+    let vocabList = result.vocabList
+    let langCodes = []
+    
+    for(let item of vocabList) {
+        langCodes.push(item.language);
+    }
+
+    for (let [key, value] of Object.entries(languageList)) {
+        if(!(langCodes.includes(value) ||value ==='xx')) {
+            continue;
+        }
+        let button = document.createElement('OPTION');
+        button.setAttribute("value", value);
+        button.textContent = key;
+        if(value === chosenLang) {
+            button.setAttribute('selected', 'selected')
+        }
+        dropdown.appendChild(button);
+    }
+    
+
     console.log(result.vocabList);
     
     constructOptions(result.vocabList);
